@@ -116,11 +116,11 @@ def show_login_register():
 
     with tab1:
         with st.form("login_form"):
-            login_user_input = st.text_input("Username", key="login_user")
-            login_pass_input = st.text_input("Password", type="password", key="login_pass")
+            login_user_input = st.text_input("Username", key="login_user").strip().lower()
+            login_pass_input = st.text_input("Password", type="password", key="login_pass").strip()
             submitted = st.form_submit_button("Login")
             if submitted:
-                if login_user(login_user_input, int(login_pass_input)):
+                if login_user(str(login_user_input), str(login_pass_input)):
                     st.session_state.logged_in = True
                     st.session_state.username = login_user_input
                     st.session_state.page = "cart"  # Redirect to cart after login
@@ -130,14 +130,14 @@ def show_login_register():
 
     with tab2:
         with st.form("register_form"):
-            reg_user_input = st.text_input("Username", key="reg_user")
-            reg_pass_input = st.text_input("Password", type="password", key="reg_pass")
-            reg_passre_input = st.text_input("Repeat Password", type="password", key="reg_pass_re")
-            reg_first_input = st.text_input("First name", key="reg_first")
-            reg_last_input = st.text_input("Last name", key="reg_last")
-            reg_email_input = st.text_input("Email", key="reg_email")
-            reg_dob_input = st.text_input("Date of birth", key="reg_dob")
-            reg_contact_input = st.text_input("Contact", key="reg_contact")
+            reg_user_input = st.text_input("Username", key="reg_user").strip()
+            reg_pass_input = st.text_input("Password", type="password", key="reg_pass").strip()
+            reg_passre_input = st.text_input("Repeat Password", type="password", key="reg_pass_re").strip()
+            reg_first_input = st.text_input("First name", key="reg_first").strip()
+            reg_last_input = st.text_input("Last name", key="reg_last").strip()
+            reg_email_input = st.text_input("Email", key="reg_email").strip()
+            reg_dob_input = st.text_input("Date of birth", key="reg_dob").strip()
+            reg_contact_input = st.text_input("Contact", key="reg_contact").strip()
             submitted = st.form_submit_button("Register")
             if submitted:
                 if reg_pass_input != reg_passre_input:
@@ -204,5 +204,6 @@ elif st.session_state.page == "checkout":
 
 elif st.session_state.page == "login":
     show_login_register()
+
 
 
