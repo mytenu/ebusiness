@@ -38,7 +38,7 @@ def login_user(username, password):
 
 # ===== PRODUCT DISPLAY =====
 def show_products():
-    st.markdown("<h2 style='text-align: center;'>🛍️ Afa Exclusive Collection</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center;'>🛍️ ITDS E-Business Hub</h2>", unsafe_allow_html=True)
 
     search_query = st.text_input("🔍 Search products", "").lower()
 
@@ -204,4 +204,5 @@ elif st.session_state.page == "checkout":
 
 elif st.session_state.page == "login":
     show_login_register()
+
 
