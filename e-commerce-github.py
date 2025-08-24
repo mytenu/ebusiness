@@ -2,6 +2,7 @@ import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
+import os
 
 # Define scope
 SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
@@ -203,3 +204,4 @@ elif st.session_state.page == "checkout":
 
 elif st.session_state.page == "login":
     show_login_register()
+
